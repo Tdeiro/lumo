@@ -1,0 +1,144 @@
+/* InteractiveList.css */
+
+/* Full-bleed techy gradient background */
+.il-root {
+  min-height: 100vh;
+  width: 100%;
+  background:
+    radial-gradient(1400px 700px at 0% 0%, rgba(99,102,241,0.12), transparent),
+    radial-gradient(1200px 600px at 100% 100%, rgba(16,185,129,0.10), transparent);
+  padding: 24px;
+}
+
+/* Wide, responsive content area:
+   - On desktop, clamp between 1200px and 1600px (uses most monitors nicely)
+   - On very large screens, it doesn’t look tiny
+   - On mobile, it collapses gracefully */
+.il-page-wrap {
+  margin: 0 auto;
+  width: min(96vw, 1600px);
+}
+
+/* Header */
+.il-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.il-title {
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+}
+
+.il-subtitle {
+  color: rgba(0,0,0,0.56);
+}
+
+.il-cta {
+  border-radius: 12px !important;
+  text-transform: none !important;
+  padding-inline: 16px !important;
+}
+
+/* Filters */
+.il-filter-card {
+  margin-bottom: 20px;
+  padding: 16px;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(2,6,23,0.08);
+}
+
+.il-filter-stack {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 12px;
+}
+
+.il-add {
+  min-width: 110px !important;
+  border-radius: 12px !important;
+  text-transform: none !important;
+}
+
+/* Data card */
+.il-grid-card {
+  height: 78vh;
+  border-radius: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(2,6,23,0.08);
+  box-shadow: 0 14px 40px rgba(15,23,42,0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.il-grid-header {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(2,6,23,0.08);
+  background-color: rgba(255,255,255,0.9);
+}
+
+.il-grid-title {
+  font-weight: 700 !important;
+  margin: 0 !important;
+}
+.il-grid-subtitle {
+  color: rgba(0,0,0,0.56);
+}
+
+/* Grid area resizes nicely, leaving room for header */
+.il-grid-wrap {
+  height: calc(78vh - 68px);
+}
+
+/* DataGrid look & feel (scoped via .il-grid) */
+.il-grid {
+  border: 0 !important;
+}
+
+/* Column headers */
+.il-grid .MuiDataGrid-columnHeaders {
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Row hover + zebra */
+.il-grid .MuiDataGrid-row:hover {
+  background-color: rgba(15,23,42,0.04);
+}
+.il-grid .MuiDataGrid-row:nth-of-type(even) {
+  background-color: rgba(0,0,0,0.02);
+}
+
+/* Cells & footer separators */
+.il-grid .MuiDataGrid-cell {
+  border-bottom: 1px solid rgba(2,6,23,0.07);
+}
+.il-grid .MuiDataGrid-footerContainer {
+  background-color: #f8fafc;
+}
+
+/* RESPONSIVE */
+/* Tablet: slightly reduce width and heights */
+@media (max-width: 1200px) {
+  .il-page-wrap { width: min(96vw, 1200px); }
+  .il-grid-card { height: 74vh; }
+  .il-grid-wrap { height: calc(74vh - 68px); }
+}
+
+/* Mobile: single-column filters */
+@media (max-width: 900px) {
+  .il-root { padding: 16px; }
+  .il-header { align-items: start; gap: 12px; }
+  .il-filter-stack { grid-template-columns: 1fr; }
+  .il-grid-card { height: 70vh; }
+  .il-grid-wrap { height: calc(70vh - 68px); }
+}

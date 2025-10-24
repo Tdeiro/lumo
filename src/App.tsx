@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { Dashboard } from "./pages/Dashboard";
+import { InteractiveList } from "./components/InteractiveList";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<InteractiveList />} />
         </Routes>
       </main>
     </BrowserRouter>
